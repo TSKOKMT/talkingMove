@@ -86,7 +86,7 @@ processname_killed_atexit = ""
 # Using "0.0.0.0" means "all interfaces", which should allow connecting to this
 # server via LAN addresses. Using "localhost" should allow only connecting from
 # local computer.
-default_webserver_hostname = '0.0.0.0'
+default_webserver_hostname = 'talkingmove.onrender.com'
 
 # If user does not specify a --port parameter, this port is used to launch the
 # server.

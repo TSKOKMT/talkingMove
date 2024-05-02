@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>openFrameworks</title>
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+                overscroll-behavior: none;
+            }
+
+            canvas {
+                position: absolute;
+            }
+        </style>
+    </head>
+
+    <body>
+        <canvas class=emscripten id=canvas oncontextmenu=event.preventDefault() tabindex=-1></canvas>
+
+        <script>
+            var Module = {
+                canvas: function () {
+                    var e = document.getElementById("canvas");
+                    return e.addEventListener("webglcontextlost", (function (e) {
+                        alert("WebGL context lost. You will need to reload the page."), e.preventDefault()
+                    }), !1), e
+                }()
+            };
+        </script>
+        <script>
+            function loop() {
+                var canvas = document.getElementById("canvas");
+                canvas.width = document.documentElement.clientWidth;
+                canvas.height = document.documentElement.clientHeight;
+
+                requestAnimationFrame(loop);
+            }
+            requestAnimationFrame(loop);
+        </script>
+        <script async src=index.js></script>
+    </body>
+
+</html>
